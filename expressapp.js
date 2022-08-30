@@ -1,7 +1,7 @@
 import express from "express";
 import index from "./server/index.js";
 import http from "http";
-import errorHandler from "./middleware/errorHandler.js";
+// import errorHandler from "./middleware/errorHandler.js";
 
 export default class App {
   async start() {
@@ -28,6 +28,6 @@ export default class App {
 
     this.app.get("/health", (req, res) => res.send("Health check route"));
     this.app.use("/api", index);
-    this.app.use(errorHandler);
+    // this.app.use(errorHandler);
   }
 }

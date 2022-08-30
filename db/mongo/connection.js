@@ -18,7 +18,7 @@ if (!mdb) {
 }
 
 const error = (e) => {
-  throw e;
+  throw new e;
 };
 
 export const mongo = () =>
