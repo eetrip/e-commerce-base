@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import { mongo } from '../db/mongo/connection.js';
 import { AuthRouter } from './routes.js';
