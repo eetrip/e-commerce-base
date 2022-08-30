@@ -49,8 +49,10 @@ export class SellerController {
 
   orders = async(req, res, next) => {
     try {
-      await this.validator.orders(req.body);
       const { user: { _id: userId, type } } = req;
+      if (type !== 'seller') {
+        throw new Error('Seller account required to fetch Orders')
+      }
       const orders = await this.service.listOrders(userId);
       return responder(res)(null, { orders });
     } catch (e) {
