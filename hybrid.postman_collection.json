@@ -1,0 +1,387 @@
+{
+	"info": {
+		"_postman_id": "286a5729-11e9-43f4-8b75-ba9d824dfcc8",
+		"name": "hybrid",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9066632"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Eeshan\",\n    \"password\": \"123456\",\n    \"type\": \"buyer\",\n    \"mobile\": 7839016006\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"123456\",\n    \"mobile\": 7839016006\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "seller",
+			"item": [
+				{
+					"name": "create catalog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzBkOTZhMTBlOTA4OTI2N2NkYjk0NWIiLCJpYXQiOjE2NjE4MzUwMTIsImV4cCI6MTY2NDQyNzAxMiwiYXVkIjoidXNlcnMiLCJpc3MiOiJlZXNoYW4ifQ.yNCzoL3V8zKyRxMXC2mem8z5-d15eAc_ZwcPmA_hGsU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"shirts\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/seller/createCatalog",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"seller",
+								"createCatalog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add items to catalog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzBkOTZhMTBlOTA4OTI2N2NkYjk0NWIiLCJpYXQiOjE2NjE4MzUwMTIsImV4cCI6MTY2NDQyNzAxMiwiYXVkIjoidXNlcnMiLCJpc3MiOiJlZXNoYW4ifQ.yNCzoL3V8zKyRxMXC2mem8z5-d15eAc_ZwcPmA_hGsU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"items\": [\n        {\n            \"name\": \"kapada\",\n            \"price\": 10\n        },\n        {\n            \"name\": \"dhoti\",\n            \"price\": 100\n        }\n    ],\n    \"catalogId\": \"630d97340e9089267cdb94c0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/seller/addItems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"seller",
+								"addItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list all orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzBkOTZhMTBlOTA4OTI2N2NkYjk0NWIiLCJpYXQiOjE2NjE4MzUwMTIsImV4cCI6MTY2NDQyNzAxMiwiYXVkIjoidXNlcnMiLCJpc3MiOiJlZXNoYW4ifQ.yNCzoL3V8zKyRxMXC2mem8z5-d15eAc_ZwcPmA_hGsU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"items\": [\n        {\n            \"name\": \"kapada\",\n            \"price\": 10\n        },\n        {\n            \"name\": \"dhoti\",\n            \"price\": 100\n        }\n    ],\n    \"catalogId\": \"630d97340e9089267cdb94c0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/seller/addItems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"seller",
+								"addItems"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "buyer",
+			"item": [
+				{
+					"name": "list sellers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzBkOTZhMTBlOTA4OTI2N2NkYjk0NWIiLCJpYXQiOjE2NjE4MzUwMTIsImV4cCI6MTY2NDQyNzAxMiwiYXVkIjoidXNlcnMiLCJpc3MiOiJlZXNoYW4ifQ.yNCzoL3V8zKyRxMXC2mem8z5-d15eAc_ZwcPmA_hGsU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/buyer/listSellers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"buyer",
+								"listSellers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get catalog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzBkOTZhMTBlOTA4OTI2N2NkYjk0NWIiLCJpYXQiOjE2NjE4MzUwMTIsImV4cCI6MTY2NDQyNzAxMiwiYXVkIjoidXNlcnMiLCJpc3MiOiJlZXNoYW4ifQ.yNCzoL3V8zKyRxMXC2mem8z5-d15eAc_ZwcPmA_hGsU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sellerId\": \"630d96a10e9089267cdb945b\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/buyer/getCatalog",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"buyer",
+								"getCatalog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create buy order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzBkOTZhMTBlOTA4OTI2N2NkYjk0NWIiLCJpYXQiOjE2NjE4MzUwMTIsImV4cCI6MTY2NDQyNzAxMiwiYXVkIjoidXNlcnMiLCJpc3MiOiJlZXNoYW4ifQ.yNCzoL3V8zKyRxMXC2mem8z5-d15eAc_ZwcPmA_hGsU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sellerId\": \"630d96a10e9089267cdb945b\",\n    \"productName\": \"kapada\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/buyer/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"buyer",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list buy orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzBkOTZhMTBlOTA4OTI2N2NkYjk0NWIiLCJpYXQiOjE2NjE4MzUwMTIsImV4cCI6MTY2NDQyNzAxMiwiYXVkIjoidXNlcnMiLCJpc3MiOiJlZXNoYW4ifQ.yNCzoL3V8zKyRxMXC2mem8z5-d15eAc_ZwcPmA_hGsU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sellerId\": \"630d96a10e9089267cdb945b\",\n    \"productName\": \"kapada\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/buyer/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"buyer",
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "health check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

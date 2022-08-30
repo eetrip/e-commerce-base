@@ -44,7 +44,7 @@ export class Catalog extends BaseCatalog {
     return this.Collection.find({
       userRef: ObjectId(sellerId),
     })
-      .project({ _id: 1, items: 1 })
+      .project({ items: 1 })
       .toArray();
   }
 }
