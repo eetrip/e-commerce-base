@@ -14,7 +14,7 @@ const register = (payload) => {
     name: Joi.string().pattern(/^[a-zA-Z_ ]*$/).required(),
     password: Joi.string().min(6).max(10).required(),
     mobile: Joi.number().min(6000000000).max(9999999999).required(),
-    type: Joi.string().required()
+    type: Joi.string().valid('buyer', 'seller').required()
   });
   return validator(schema)(payload);
 };
