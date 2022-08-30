@@ -33,10 +33,18 @@ export class Users extends BaseUsers {
           mobile,
           type,
           secret,
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
       },
       { upsert: true, returnNewDocument: true }
     );
+  }
+
+  listSellers() {
+    return this.Collection.find({ type: "seller" })
+      .project({ _id: 0, name: 1, sellerId: "$_id" })
+      .toArray();
   }
 }
 export default Users;

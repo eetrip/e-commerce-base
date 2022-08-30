@@ -39,5 +39,13 @@ export class Catalog extends BaseCatalog {
       { $push: { items: { $each: items } } }
     );
   }
+
+  getCatalogForBuyer(sellerId) {
+    return this.Collection.find({
+      userRef: ObjectId(sellerId),
+    })
+      .project({ _id: 1, items: 1 })
+      .toArray();
+  }
 }
 export default Catalog;
