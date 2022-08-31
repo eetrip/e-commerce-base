@@ -52,7 +52,7 @@ export class BuyerController {
       if (activeOrder) {
         throw new Error("An active order for this product already exists");
       }
-      const orderId = await this.service.createBuyOrder({
+      const { upsertedId: orderId } = await this.service.createBuyOrder({
         productName,
         sellerId,
         catalogId,
