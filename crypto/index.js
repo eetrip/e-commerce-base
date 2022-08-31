@@ -1,5 +1,4 @@
 import crypto from 'crypto';
-import { promisify } from 'util';
 
 export class Crypto {
   constructor({
@@ -47,24 +46,6 @@ export class Crypto {
       this.digest
     ).toString('hex');
     return hashed === password;
-  }
-
-  fivePaisaLeadGenerationToken(secret, salt, clientCode) {
-    const length = 32 + 16;
-    const hashedData = crypto.pbkdf2Sync(secret, salt, this.iteration, length, this.digest);
-    const key = hashedData.slice(0, 32);
-    const iv = hashedData.slice(32, length);
-    const inputEncoding = 'utf16le';
-    const outputEncoding = 'base64';
-    const algorithm = 'aes-256-cbc';
-    const cipher = crypto.createCipheriv(algorithm, key, iv);
-    let encrypted = cipher.update(clientCode, inputEncoding, outputEncoding);
-    encrypted += cipher.final(outputEncoding);
-    return encrypted;
-  }
-
-  generateRandomBytes(size) {
-    return promisify(crypto.randomBytes)(size || this.size);
   }
 }
 
